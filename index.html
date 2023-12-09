@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Final Project </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9817ad20-7edd-4f1e-8596-1bbe8c01a78e" class="page sans"><header><h1 class="page-title">Final Project </h1><p class="page-description"></p></header><div class="page-body"><p id="e92328d1-749b-4a88-8724-b918a8cd8d1d" class="">by Wesley Jiang</p><h2 id="3fa8ba8b-5698-4c6f-8530-ab72d9dfba73" class="">Final Project 1: Augmented Reality</h2><h3 id="5afcbe65-94f0-41e2-aa80-6b5b41a2eb09" class=""><strong>Setup</strong></h3><p id="483ce6b3-8951-462d-8c9e-6b8034927db0" class="">I found a flat surface to place, in this case, a cereal box, and drew a a regular pattern across the box. Then I proceeded to label roughly 60 points across the box using ‘ginput’ : each points corresponds to a (u,v) in image coordinates and an (x,y,z) in world frame coordinates. For each point that was manually label, correspond them to it’s respective world frame coordinate.</p><p id="a77894e2-66c2-411a-8b4b-5e69bb989728" class=""><strong>Original Video:</strong></p><figure id="9c5bb462-f4ea-4b22-a5c5-80b980eeb22f"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/original.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/0430b028-bd92-4077-9532-6a03d78ec784/original.mp4</a></div></figure><h3 id="49cdaf3a-5744-4c38-990f-c9495651a246" class=""><strong>Keypoints with known 3D world coordinates:</strong></h3><p id="becddf9d-70d8-46c2-874f-de11c6549963" class="">Below is the an image of the world frame axis. </p><figure id="fcbec416-32fc-4429-a397-79f4d785936d" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/pose.jpg"><img style="width:1920px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/pose.jpg"/></a><figcaption>Red: x axis, Green: y axis, Blue: z axis</figcaption></figure><p id="a09d4e63-276a-4535-97fd-50b45e6e8766" class=""><strong><strong>Propagating Keypoints to other Images in the Video: Off the Shelf Trackers</strong></strong></p><p id="183726a4-4380-42bb-8697-c2ea03b2192d" class="">I used some ‘off the shelf trackers’ to track each point on the box. To do this, I initialized a tracker for each point. For each frame, I updated the trackers, kept track of their positions, and found the 3d to 2d transformation matrix T, using least squares on the 3d points shown and their corresponding 2d points. Then for each frame I multiplied the 3d corners points of the cube with the transformation to get image coordinates (u,v). With these image coordinates, I plotted a cube for each frame using OpenCV libraries.</p><figure id="82653324-a3a8-4e1d-a798-9ac1a26ff35f" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="center" columnspacing="0em"><mtr><mtd class ="mtr-glue"></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>u</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>u</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>v</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>v</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><mo>=</mo><msub><mi>T</mi><mrow><mn>3</mn><mo>∗</mo><mn>4</mn></mrow></msub><mo>∗</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>y</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>y</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>z</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>z</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>1</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow></mstyle></mtd><mtd class ="mtr-glue"></mtd><mtd class ="mml-eqn-num"></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{gather}\begin{bmatrix}  u_{0} &amp; u_{1} &amp; ...\\   v_{0} &amp; v_{1} &amp; ...\\  1 &amp; 1 &amp; ...\end{bmatrix} =T_{3*4} * \begin{bmatrix}  x_{0} &amp; x_{1} &amp; ...\\   y_{0} &amp; y_{1} &amp; ...\\  z_{0} &amp; z_{1} &amp; ...\\  1 &amp; 1 &amp;...\end{bmatrix}\end{gather}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:5.1em;vertical-align:-2.3em;"></span><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.8em;"><span style="top:-4.8em;"><span class="pstrut" style="height:4.65em;"></span><span class="mord"><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.667em' height='3.600em' viewBox='0 0 667 3600'><path d='M403 1759 V84 H666 V0 H319 V1759 v0 v1759 h347 v-84
+H403z M403 1759 V0 H319 V1759 v0 v1759 h84z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span><span style="top:-1.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em;"><span style="top:-4.05em;"><span class="pstrut" style="height:5.6em;"></span><span style="width:0.667em;height:3.600em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.667em' height='3.600em' viewBox='0 0 667 3600'><path d='M347 1759 V0 H0 V84 H263 V1759 v0 v1759 H0 v84 H347z
+M347 1759 V0 H263 V1759 v0 v1759 h84z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mbin mtight">∗</span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-4.65em;"><span class="pstrut" style="height:6.8em;"></span><span style="width:0.667em;height:4.800em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.667em' height='4.800em' viewBox='0 0 667 4800'><path d='M403 1759 V84 H666 V0 H319 V1759 v1200 v1759 h347 v-84
+H403z M403 1759 V0 H319 V1759 v1200 v1759 h84z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-4.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-4.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-1.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-4.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span><span style="top:-1.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">...</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-4.65em;"><span class="pstrut" style="height:6.8em;"></span><span style="width:0.667em;height:4.800em;"><svg xmlns="http://www.w3.org/2000/svg" width='0.667em' height='4.800em' viewBox='0 0 667 4800'><path d='M347 1759 V0 H0 V84 H263 V1759 v1200 v1759 H0 v84 H347z
+M347 1759 V0 H263 V1759 v1200 v1759 h84z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.3em;"><span></span></span></span></span></span></span></span><span class="tag"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.8em;"><span style="top:-4.8em;"><span class="pstrut" style="height:4.65em;"></span><span class="eqn-num"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.3em;"><span></span></span></span></span></span></span></span></span></div></figure><p id="ebcfceda-9346-4e7d-8182-943fa81f3620" class="">Performing least squares on this system should produce the 3x4 matrix T!</p><p id="b46f1c4f-3a27-476c-be71-520ddbefa3be" class="">Different trackers produce different results! For median tracker, some of the trackers seem to ‘lose track’ of their dots, which is probably why the cube looks a bit wonky. So I tried a few more based on the trackers listed on this <a href="https://mpolinowski.github.io/docs/IoT-and-Machine-Learning/ML/2021-12-06--opencv-object-tracking/2021-12-06/">website.</a> The second tracker I used is called ‘boosting’ - and it does quite a good job tracking dots, except it mis-tracks dots as the camera moves. Nevertheless the cube is a little more stable. CSRT tracker by far produces the best results.</p><p id="36a59d25-ee79-48bb-b2de-91ef7623fc1c" class=""><strong>MedianFlow</strong></p><figure id="d83ad97d-bf55-4da6-a5cd-e8c0d01d9492"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/median_flow_tracker.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/c7f18301-7a42-420f-9111-76a3c62ebf06/median_flow_tracker.mp4</a></div></figure><figure id="90d8d26b-bc39-4906-9038-9c458d133395"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/median_flow_cube.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/4fe983c8-42c2-4ab0-a1c0-8d860258b18c/median_flow_cube.mp4</a></div></figure><p id="e1600625-7374-46a4-9ad3-19287efd5703" class=""><strong>Boosting Tracker</strong></p><figure id="b684e101-7d94-47ba-a258-1b3a0c222bcb"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/boosting_tracker.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/cc463188-5e31-42f7-aed4-7ff8b51cdfe4/boosting_tracker.mp4</a></div></figure><figure id="c75a4469-1843-4d53-b91f-17f88826982a"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/median_flow_cube%201.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/1c4094df-dfed-43cf-8fde-0c119d589d8f/median_flow_cube.mp4</a></div></figure><p id="745e1e6b-acf6-4e9e-b1e6-43048eb1a0b4" class=""><strong>CSRT</strong></p><figure id="e2fbd4a1-01ec-4067-90bb-465d061b5d14"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/csrt_tracker.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/55d9e2ba-4cf6-4b63-bef9-7cfc35c6c22e/csrt_tracker.mp4</a></div></figure><figure id="fc63f81b-1c0e-45e2-8d93-d72a1f22dbe2"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/csrt_cube.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/d58d52b0-4bb4-436b-95fa-f3eb66887aae/csrt_cube.mp4</a></div></figure><h3 id="f3fd90ee-d4e7-41d2-9a21-f2014657d146" class="">Summary: What did I learn?</h3><p id="7bea82d3-2b7f-4c84-969a-071b58e57549" class="">This project was a great way to learn how 3d to 2d transformations work. Using only least squares I was able to understand ‘a change of frames’ where I can firstly: estimate a transformation matrix, and secondly transform 3d coordinates into image coordinates to draw virtual 3d objects. This idea can be taken to the next step perhaps with non-geometric objects like a light bulb or a simple bowl. It was a nice introduction to how basic augmented reality works.</p><h2 id="76058ae3-7a98-4e2b-8e71-f5d2f7493408" class="">Final Project 2: Lightfield Camera</h2><p id="7f631605-6a9c-4d53-946a-fa89861954be" class=""><strong>Depth Refocusing:</strong></p><p id="57c95893-7818-4546-ae0f-c97fc9907355" class="">Objects far away from the camera don’t vary in position as much when the camera moves around where as the objects much closer to the camera will move much more when the camera moves. By shifting the images based on the center in which we will call (c1, c2) and the shifts given by the image file (u, v), I am able to align the images via averaging and applying different alpha values to change the depth of focus simply by scaling the difference between the center (c1, c2) and the shifts (u,v) by alpha: alpha*(center - shifts).  Below are both images and videos of the results:</p><div id="6de8b12d-eefd-4180-b26f-6aefc6777793" class="column-list"><div id="09f2be0c-7e14-4df8-952a-b479ac55fcd3" style="width:33.333333333333336%" class="column"><figure id="defe3494-b6c8-40f7-b563-5d2cb36357f4" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/19.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/19.png"/></a></figure></div><div id="71b1d318-23f6-44a4-b132-7b07fac65f64" style="width:33.333333333333336%" class="column"><figure id="e5878131-0262-4f22-8485-59aac316f24a" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/27.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/27.png"/></a></figure></div><div id="09d70ed3-4de3-4286-a305-c7150890738a" style="width:33.33333333333333%" class="column"><figure id="125b4c50-3997-42e2-a174-3ec5a60ca078" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/34.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/34.png"/></a></figure></div></div><figure id="30bb6818-656d-4c65-8188-a8dda257c5c2"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/chessboard.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/bff25149-1e4c-4085-b057-c67a9c333515/chessboard.mp4</a></div></figure><figure id="42e512bb-6824-4850-9669-b8be29ac0ab8"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/bracelet.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/1a308e6d-effd-4c89-8795-c846a25c865e/bracelet.mp4</a></div></figure><figure id="d58d0860-aaf0-43e9-820b-219c121ceff9"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/flower2.mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/81a86a63-7ba4-46c7-a2c3-01a145b9e66f/flower2.mp4</a></div></figure><p id="884f6e1c-126e-44b2-b474-389d8d7e1e26" class="">
+</p><p id="b0e1c083-773d-4fd9-a48e-863f5a7be8a6" class=""><strong>Aperture Adjustment:</strong></p><p id="0c3b1e1e-8b90-4cd1-b0fb-a40bb1eef8d4" class="">The previous section’s blurring mechanism came from averaging the non-aligned areas of images post shift. In this section, we will be simulating toggling aperture size to vary the focus of the image. Implementing this is very similar to the the previous section, except, instead of taking the mean of the entire set of images, you take the mean of fewer images that meet a new condition: that the distance between the camera coordinates from the central image is within a set radius. Filter the image set under this new condition, and taking the mean of the images that meet the condition. The resulting image will simulate a camera lens w/ varying aperture.</p><div id="b649174f-e2ca-4754-a401-e1fd630f3a03" class="column-list"><div id="71be77a0-bd50-4f37-94f7-0c2802012925" style="width:50%" class="column"><figure id="85609dc8-0471-4c0c-9ed1-b9f8d6edd27d" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1.png"/></a></figure></div><div id="ed245ba1-02d0-494b-a7b7-42f124801f48" style="width:50%" class="column"><figure id="b8ff4f89-8300-4abd-87d0-9256099b6341" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2.png"/></a></figure></div></div><div id="1a90979b-d9dd-42e1-8138-bd8bfbb94e94" class="column-list"><div id="003fc896-e305-48b9-844b-13d83b81624b" style="width:50%" class="column"><figure id="7178edf1-c6cc-4df4-9b8e-e24534f4f519" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3.png"/></a></figure></div><div id="dd06f512-bcac-4d66-a840-29048bba6c35" style="width:50%" class="column"><figure id="4b50b0e9-1de8-4130-b7d7-4fe521e3431e" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4.png"/></a></figure></div></div><div id="7b33bc17-9339-4865-a1e5-f1a17276e1c7" class="column-list"><div id="84f718b0-b382-495d-b973-2c7c7f12a0cd" style="width:50%" class="column"><figure id="984bcdec-c6ac-479b-b0a0-f9b1dca472d3" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5.png"/></a></figure></div><div id="1787e065-638a-483e-904d-fa43bb474664" style="width:50%" class="column"><figure id="56c2c73d-6c4d-4afe-91d5-673be3c8a66e" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6.png"/></a></figure></div></div><div id="eb5e0b66-4a29-4510-b40e-99a35ed66d20" class="column-list"><div id="8abee019-9da5-4636-b1f0-c325332be444" style="width:50%" class="column"><figure id="0be7f90f-41bc-4c7c-be3a-04346e1ba667" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7.png"/></a></figure></div><div id="cb3b6f39-4e6f-4420-bed7-6569e9941699" style="width:50%" class="column"><figure id="95a9a409-5fd4-496d-916f-3366187b490d" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/8.png"><img style="width:1400px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/8.png"/></a></figure></div></div><div id="95c1530f-a1e7-4019-8b62-3150d7b5ef60" class="column-list"><div id="21a2bc16-578c-4610-baa7-9e4d6d4fbc0f" style="width:50%" class="column"><figure id="4845cd91-1a2d-46b3-869c-c97f9db463ba" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/0.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/0.png"/></a></figure></div><div id="f6ee4ea2-9fca-4776-a19d-6484f3101b1f" style="width:50%" class="column"><figure id="10921871-dd2c-4abe-b1f4-1490131e7a5c" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1%201.png"/></a></figure></div></div><div id="eadbadea-2880-407c-9e83-3f27e3dea594" class="column-list"><div id="0d57a6d9-0408-418a-aad5-f8d680249105" style="width:50%" class="column"><figure id="5e6850f1-5c25-48c3-b539-0bf5a70e5ba9" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2%201.png"/></a></figure></div><div id="784bbf36-3e05-47a3-98d9-adf7bce38f3e" style="width:50%" class="column"><figure id="120f6b13-ca22-42e3-a982-9174282a53d8" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3%201.png"/></a></figure></div></div><div id="595fab37-733f-422d-a6dd-f259927d57ab" class="column-list"><div id="f7e6b94f-027a-43d9-8e53-914cd15efe04" style="width:50%" class="column"><figure id="02f41097-86bd-4c3f-bce5-ae0c4e939363" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4%201.png"/></a></figure></div><div id="1b14a28e-97bf-4d62-a5fc-a8dc35dbc89a" style="width:50%" class="column"><figure id="1590b704-3730-46a6-b961-025c8cade8cd" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5%201.png"/></a></figure></div></div><div id="a3005fd7-d64e-41c0-a726-18ed6779c7d4" class="column-list"><div id="74870a8d-9774-4233-8d5a-b70d60abce33" style="width:50%" class="column"><figure id="7842dab4-4eb3-4987-bed4-55cf6139a849" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6%201.png"/></a></figure></div><div id="a9ea8256-9642-4c77-82e9-6e2a671e1e4c" style="width:50%" class="column"><figure id="0575d493-2c63-4246-941e-120c0403847a" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7%201.png"><img style="width:1024px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7%201.png"/></a></figure></div></div><div id="b13e57a9-af09-45b8-a7c7-35d7557d13bd" class="column-list"><div id="b0b9cf6e-dba7-414d-a2d6-f7e9c23b0ef4" style="width:50%" class="column"><figure id="909788e8-ee7e-48a4-9396-168c0d260bc8" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/0%201.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/0%201.png"/></a></figure></div><div id="d8e4cb78-4f9c-4896-8d09-c442a48b82f0" style="width:50%" class="column"><figure id="1a9a1774-dac6-4bb6-a434-0c3f6010713c" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1%202.png"/></a></figure></div></div><div id="dcb1ad7a-bdb0-49aa-a749-cdf24baa70a8" class="column-list"><div id="9dbcf87b-4ffd-4cef-9858-9e2970573d27" style="width:50%" class="column"><figure id="f0195796-7244-45ff-80a6-b2a75a536471" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2%202.png"/></a></figure></div><div id="77a46035-2d84-481f-821d-4b8f33fd04cf" style="width:50%" class="column"><figure id="cdfbc5df-1162-4f13-a88c-8d35eadc4f93" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3%202.png"/></a></figure></div></div><div id="f1f2d89e-37d6-4102-b738-f5c251d0a511" class="column-list"><div id="8efd04d2-9edb-4e36-aa11-7bb50a897ca8" style="width:50%" class="column"><figure id="746f569a-c6d0-4dec-bcf3-956206058a1a" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4%202.png"/></a></figure></div><div id="c669dfd8-b10e-4b26-a3e0-a5cae5327e3b" style="width:50%" class="column"><figure id="b9979d13-93f5-46b7-97f5-9ecea0703d58" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5%202.png"/></a></figure></div></div><div id="3adc8847-6b9b-4547-9dcd-df6c22df5ec3" class="column-list"><div id="63d7ba8a-a1ea-4fd8-b1df-2177256c47b5" style="width:50%" class="column"><figure id="8508dd3a-03ab-46f3-84a2-d141606b498d" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6%202.png"/></a></figure></div><div id="409fff3f-f435-4ee4-94ba-8df884503510" style="width:50%" class="column"><figure id="db37c3b7-971e-4aec-a42f-d20c0b8f8d82" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7%202.png"><img style="width:960px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7%202.png"/></a></figure></div></div><h2 id="242498d0-f20d-4754-918c-2502e356fada" class=""><strong>Bells and Whistles: Collecting my Own Data!</strong></h2><p id="7f553867-9ba9-4dd4-a01e-d97e68dc7a74" class="">Using Real Data : Collect your own data by clicking multiple images with a normal camera and implement refocusing / aperture adjustment. If it does not work, why do think that is the case ?</p><p id="3f4125cf-979b-44d7-a7f4-eb19733812fa" class="">Using my phone I took 16 images of my water bottle in an array like fashion, each similarly labeled like the ones from the archive. Then I proceeded to perform the same operations as above. Here are the results below:</p><p id="994e48f2-455f-4297-86fb-541213854e50" class=""><strong>Original Image:</strong></p><figure id="0e6b7c5c-7c60-46a6-b05f-f1d558795422" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/0%202.png"><img style="width:240px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/0%202.png"/></a></figure><p id="88f7792b-91c8-4a8e-8708-020d1330a9a0" class="">
+</p><p id="05b34023-e25c-4211-8e03-6af324216fe1" class=""><strong>Depth</strong> <strong>Refocusing:</strong></p><figure id="c0315e3e-7827-4464-ae7e-419381398613"><div class="source"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/bottle_(online-video-cutter.com).mp4">https://prod-files-secure.s3.us-west-2.amazonaws.com/e726b724-8123-4b1e-a96b-20166ca75044/054fc66c-25af-4e80-9fdf-469ac020e083/bottle_(online-video-cutter.com).mp4</a></div></figure><p id="0cfbcb6b-9948-43f5-aa85-38c139addff0" class=""><strong>Aperture Adjustment:</strong></p><div id="f610a7a8-e20c-4554-94f7-7437db02c558" class="column-list"><div id="f6148b9f-49eb-4f57-a954-03e4da7f81a2" style="width:25%" class="column"><figure id="5a6a4c76-2142-44d8-aecd-265623f36ca2" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/1%203.png"/></a></figure></div><div id="b09d32fa-05b6-4e7d-902d-c0bdc05fc9c8" style="width:25%" class="column"><figure id="596503e1-87c0-463c-aba7-54fda106912e" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/2%203.png"/></a></figure></div><div id="88e68c37-3510-4e57-b9a8-fbfcd4df83d6" style="width:25%" class="column"><figure id="693f7094-e3d9-4491-bdb1-585a8ee78a86" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/3%203.png"/></a></figure></div><div id="4a27ab94-40ff-4c7a-8539-95986d2901f1" style="width:25%" class="column"><figure id="c26a7d27-d972-49d2-9bea-14b4401a0220" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/4%203.png"/></a></figure></div></div><div id="bd52e7fc-5aaf-4bd0-ba0c-27e55a0ea93f" class="column-list"><div id="7c4579f6-6ace-4b1a-aae0-aa84bcba800d" style="width:25%" class="column"><figure id="5967d090-d854-4f2c-bb7c-8097b7fcd9da" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/5%203.png"/></a></figure></div><div id="b322a6fc-8d89-40e9-a3da-347cde959827" style="width:25%" class="column"><figure id="1f0e5073-d829-475f-9af1-3c0b03b95334" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/6%203.png"/></a></figure></div><div id="20d521ea-7b86-4cc2-90b9-73e47d9b61f1" style="width:25%" class="column"><figure id="e60b2678-87e9-4ebb-a731-d16edf90220f" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7%203.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/7%203.png"/></a></figure></div><div id="02d4128a-d5b0-479d-b546-4c013fb61837" style="width:25%" class="column"><figure id="9bd7b08c-571c-4fd2-906b-4df3d4021e28" class="image"><a href="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/8%201.png"><img style="width:1800px" src="Final%20Project%209817ad207edd4f1e85961bbe8c01a78e/8%201.png"/></a></figure></div></div><h3 id="77768126-134f-440e-959a-f96e7127cf88" class="">What went wrong?</h3><p id="0397d34d-d32a-4d9e-bd7a-87dfb474202f" class="">Both depth refocusing and aperture readjustment didn’t seem to work no matter how hard I tried to reimplement the code. This is probably due to my setup - I simply didn’t have the right tools to take the correct photos in the right positions. Ideally, I should have a gantry, or a tripod where I could carefully shift my images to photos like how the archives did. </p><p id="250f96d6-3b57-44f3-96de-bf8c1254a99f" class="">Unfortunately, I only could shift my camera with my hands, which produced unideal uncalibrated images, which explains all the blurriness. Perhaps a way I could have improved this is by taking a stream of photos.</p><h3 id="f5ff47ad-757d-4521-897a-4b50e3d8d679" class="">Summary: What did I learn?</h3><p id="317e81b7-a7cb-4ecd-b4b1-80dc5ce2efbc" class="">The light field camera — is able to focus on what I want to focus on given the right shifts in images. This is because the light field camera is able to capture lot of information about light rays coming into the lens. This behavior can be simulated by taking the aligning carefully shifted images as with this project. I believe this was a good way to learn about databases of images can be post-processed to replicate camera functionality.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body>
+<script>
+    var videos = document.getElementsByClassName("source");
+    for (var i = 0; i < videos.length; i++) {
+        var source = videos[i].getElementsByTagName("a");
+        if (source[0].href.includes("youtube")) {
+            var videoObject = document.createElement('iframe');
+            videoObject.src = source[0].href.replace("watch?v=", "embed/");
+            videos[i].style.padding = "0";
+            videoObject.style.width = "100%";
+            videos[i].append(videoObject);
+            source[0].remove();
+        } else {
+            var videoObject = document.createElement('video');
+            videos[i].style.padding = "10";
+            videoObject.src = source[0].href;
+            videoObject.controls = true;
+			videoObject.style.height="100%"
+            videoObject.style.width = "75%";
+            videos[i].append(videoObject);
+            source[0].remove();
+        }
+    }
+</script>
+</html>
